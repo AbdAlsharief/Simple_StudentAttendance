@@ -8,25 +8,18 @@ package com.example.studentattendance.controller;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Account;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.ResourceBundle;
-
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 public class LoginController {
+
     @FXML
-    private TextField usernameField;
+    private  TextField usernameField;
     @FXML
     private PasswordField passwordField;
     @FXML
@@ -38,26 +31,30 @@ public class LoginController {
     Navigation navigation = new Navigation();
 
     public LoginController() {
-    }
-
-
-    @FXML
-    private void initialize() {
-        this.submitButton.setOnAction(this::submit);
 
     }
 
-    @FXML
-    public void submit(ActionEvent event) {
-        String enteredUsername = this.usernameField.getText();
-        String enteredPassword = this.passwordField.getText();
-        if (Account.authenticate(enteredUsername, enteredPassword)) {
-            if (Account.isAdmin(enteredUsername)) {
-               // Navigation.navigateTo(root, navigation.ADMIN_FXML);
-                    navigation.navigateTo(root, navigation.ADMIN_FXML);
-                }
-            }
 
+//    @FXML
+//    private void initialize() {
+//        this.submitButton.setOnAction(this::submit);
+//
+//    }
+
+//    @FXML
+//    public void submit(ActionEvent event) {
+//        String enteredUsername = this.usernameField.getText();
+//        String enteredPassword = this.passwordField.getText();
+//        if (Account.authenticate(enteredUsername, enteredPassword)) {
+//            if (Account.isAdmin(enteredUsername)) {
+//               // Navigation.navigateTo(root, navigation.ADMIN_FXML);
+//                    navigation.navigateTo(root, navigation.ADMIN_FXML);
+//                }
+//            }
+//
+//        }
+        public String getUsername(){
+        return String.valueOf(usernameField);
         }
 
     }

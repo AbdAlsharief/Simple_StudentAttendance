@@ -11,6 +11,9 @@ public class Person {
         this.residenceArea = residenceArea;
     }
 
+    public Person() {
+    }
+
     public String getName() {
         return name;
     }

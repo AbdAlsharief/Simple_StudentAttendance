@@ -1,9 +1,18 @@
 package com.example.studentattendance.models;
 
-public class Teacher extends Person {
+import java.io.Serializable;
+
+public class Teacher extends Person implements Serializable {
     private String subject;
     private String book;
     private String hall;
+    private String username;
+    private String password;
+
+    public Teacher(String username,String password) {
+        this.username=username;
+        this.password=password;
+    }
 
     public Teacher(String name, String mobileNumber, String residenceArea, String subject, String book, String hall) {
         super(name, mobileNumber, residenceArea);
@@ -36,11 +45,8 @@ public class Teacher extends Person {
         this.hall = virtualMeetingPlace;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() +
-                "\nSubject: " + subject +
-                "\nBook: " + book +
-                "\nVirtual Meeting Place: " + hall;
-    }
+//    @Override
+//    public String toString() {
+//        return name + ", " + gpa;
+//    }
 }

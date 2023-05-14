@@ -17,7 +17,7 @@
             </VBox>
          </left>
          <top>
-            <Button fx:id="out" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="57.0" text="Logout" BorderPane.alignment="TOP_RIGHT" />
+            <Button fx:id="out" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="57.0" text="Logout" />
          </top>
       </BorderPane>
    </children>
