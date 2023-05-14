@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Main extends Application {
     String username = "admin";
     String password = "admin";
-    Account account = new Account(username,password,true);
+//    Account account = new Account(username,password,true);
 
 
     public static void main(String[] args) {

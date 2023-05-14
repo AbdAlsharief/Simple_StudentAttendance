@@ -29,7 +29,7 @@ public class AdminController {
     @FXML
     private Label user;
     Navigation navigation = new Navigation();
-    Account account=new Account();
+  //  Account account=new Account();
     public AdminController() {
 
     }
