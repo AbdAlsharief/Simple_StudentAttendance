@@ -48,7 +48,7 @@ import java.util.Optional;
 
                 if (result.get() == save) {
                     AccountDataModel model = new AccountDataModel();
-                    model.save_Accounts(); // Assuming you have a saveStudents() method in the DataModel class
+                    model.saveAccounts(); // Assuming you have a saveStudents() method in the DataModel class
                 } else if (result.get() == cancel) {
                     event.consume();
                 }

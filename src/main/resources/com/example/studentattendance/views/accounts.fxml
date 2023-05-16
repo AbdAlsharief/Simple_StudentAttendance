@@ -10,10 +10,10 @@
             <left>
                 <VBox prefHeight="374.0" prefWidth="84.0" BorderPane.alignment="BOTTOM_CENTER">
                     <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="84.0" text="add"  />
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="84.0" text="edit" />
-                  <Button layoutX="10.0" layoutY="168.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="84.0" text="delete" />
-                      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" text="Back">
+                  <Button mnemonicParsing="false" onAction="#add" prefHeight="50.0" prefWidth="84.0" text="add" />
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="84.0" text="edit" onAction="#edit" />
+                  <Button layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onAction="#delete" prefHeight="128.0" prefWidth="84.0" text="delete" />
+                      <Button mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="86.0" text="Back">
                      <VBox.margin>
                         <Insets top="300.0" />
                      </VBox.margin>

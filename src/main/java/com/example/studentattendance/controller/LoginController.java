@@ -6,7 +6,6 @@
 package com.example.studentattendance.controller;
 
 import com.example.studentattendance.Navigation;
-import com.example.studentattendance.models.Account;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

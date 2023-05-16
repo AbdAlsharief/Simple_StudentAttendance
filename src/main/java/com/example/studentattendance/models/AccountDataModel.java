@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class AccountDataModel {
     private static ArrayList<Account> accounts = null;
 
-
     public AccountDataModel() {
         initialize();
     }
@@ -20,13 +19,17 @@ public class AccountDataModel {
             File file = new File("account.csv");
             if (file.exists()) {
                 try (Scanner scanner = new Scanner(file)) {
-                    //read header line
+                    // read header line
                     String s = scanner.nextLine();
                     accounts = new ArrayList<>();
                     while (scanner.hasNext()) {
                         s = scanner.nextLine();
                         String[] strings = s.split(",");
-                        accounts.add(new Account(Integer.parseInt(strings[0]),strings[1],strings[2]));
+                        accounts.add(new Account(
+                                Integer.parseInt(strings[0]),
+                                strings[1],
+                                strings[2]
+                        ));
                     }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -42,7 +45,7 @@ public class AccountDataModel {
         }
     }
 
-    public void save_Accounts() {
+    public void saveAccounts() {
         try (PrintWriter pw = new PrintWriter("account.csv")) {
             pw.println("code,username,password");
             for (Account account : accounts) {
@@ -57,7 +60,6 @@ public class AccountDataModel {
         accounts.add(account);
     }
 
-
     public Account getAccountByUsername(String username) {
         for (Account account : accounts) {
             if (Objects.equals(account.getUsername(), username)) {
@@ -71,7 +73,7 @@ public class AccountDataModel {
         return accounts;
     }
 
-    public Account deleteAccountByName(String username) {
+    public Account deleteAccountByUsername(String username) {
         for (Account account : accounts) {
             if (Objects.equals(account.getUsername(), username)) {
                 accounts.remove(account);
@@ -80,5 +82,20 @@ public class AccountDataModel {
         }
         return null;
     }
-}
 
+    public boolean isAdmin(Account account) {
+        return account.getCode() >= 0 && account.getCode() < 100;
+    }
+
+    public void updateAccountCode(Account account) {
+        if (isAdmin(account)) {
+            account.setCode((int) (Math.random() * 100));
+        } else {
+            account.setCode((int) (Math.random() * 100) + 100);
+        }
+    }
+    public void removeAccount(Account account) {
+        accounts.remove(account);
+    }
+
+}
