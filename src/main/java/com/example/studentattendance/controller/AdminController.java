@@ -23,9 +23,12 @@ import javafx.scene.layout.AnchorPane;
 import com.example.studentattendance.Navigation;
 public class AdminController {
     @FXML
-    private AnchorPane loginPane;
+    private AnchorPane adminPane;
+
     @FXML
     private Button out;
+    @FXML
+    private Button account;
     @FXML
     private Label user;
     Navigation navigation = new Navigation();
@@ -36,10 +39,15 @@ public class AdminController {
 
     public void initialize(){
 //        user.setText(LoginController.getUsername());
+        account.setOnAction(event -> handleAccountButton());
     }
     public void logout(ActionEvent event){
 
-        navigation.navigateTo(loginPane, navigation.LOGIN_FXML);
+        navigation.navigateTo(adminPane, navigation.LOGIN_FXML);
+    }
+    public void handleAccountButton(){
+        navigation.navigateTo(adminPane,navigation.ACCOUNTS_FXML);
+
     }
     }
 

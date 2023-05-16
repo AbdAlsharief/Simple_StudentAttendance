@@ -35,27 +35,27 @@ public class LoginController {
     }
 
 
-//    @FXML
-//    private void initialize() {
-//        this.submitButton.setOnAction(this::submit);
-//
-//    }
+    @FXML
+    private void initialize() {
+        this.submitButton.setOnAction(this::submit);
 
-//    @FXML
-//    public void submit(ActionEvent event) {
-//        String enteredUsername = this.usernameField.getText();
-//        String enteredPassword = this.passwordField.getText();
-//        if (Account.authenticate(enteredUsername, enteredPassword)) {
+    }
+
+    @FXML
+    public void submit(ActionEvent event) {
+        String enteredUsername = this.usernameField.getText();
+        String enteredPassword = this.passwordField.getText();
+
+//        if (Account.(enteredUsername, enteredPassword)) {
 //            if (Account.isAdmin(enteredUsername)) {
-//               // Navigation.navigateTo(root, navigation.ADMIN_FXML);
-//                    navigation.navigateTo(root, navigation.ADMIN_FXML);
-//                }
+             navigation.navigateTo(root, navigation.ADMIN_FXML);
+                }
 //            }
-//
+
 //        }
-        public String getUsername(){
-        return String.valueOf(usernameField);
-        }
+//        public String getUsername(){
+//        return String.valueOf(usernameField);
+//        }
 
     }
 

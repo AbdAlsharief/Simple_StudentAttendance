@@ -9,9 +9,11 @@ public class Teacher extends Person implements Serializable {
     private String username;
     private String password;
 
-    public Teacher(String username,String password) {
-        this.username=username;
-        this.password=password;
+
+    public Teacher(int code, String username, String password) {
+        this.username = username;
+        this.password = password;
+
     }
 
     public Teacher(String name, String mobileNumber, String residenceArea, String subject, String book, String hall) {
@@ -44,9 +46,6 @@ public class Teacher extends Person implements Serializable {
     public void setHall(String virtualMeetingPlace) {
         this.hall = virtualMeetingPlace;
     }
-
-//    @Override
-//    public String toString() {
-//        return name + ", " + gpa;
-//    }
 }
+
+
