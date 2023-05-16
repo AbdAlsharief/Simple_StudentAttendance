@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -61,9 +62,13 @@ public class AccountsController {
     public void edit() {
         Account selectedAccount = tableView.getSelectionModel().getSelectedItem();
         if (selectedAccount != null) {
-           navigation.selectNavigateTo(accountPane, navigation.EDIT_ACCOUNTS_FXML, selectedAccount);
+            navigation.selectNavigateTo(accountPane, navigation.EDIT_ACCOUNTS_FXML, selectedAccount);
         } else {
-            System.out.println("No account selected.");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Account Selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an account to edit.");
+            alert.showAndWait();
         }
     }
 
