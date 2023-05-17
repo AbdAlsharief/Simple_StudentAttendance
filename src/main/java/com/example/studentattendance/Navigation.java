@@ -19,6 +19,7 @@ public class Navigation {
     public final String ADD_ACCOUNTS_FXML = "views/addAccount.fxml";
     public final String DELETE_ACCOUNTS_FXML = "views/deleteAccount.fxml";
     public final String EDIT_ACCOUNTS_FXML = "views/editAccount.fxml";
+    public final String TEACHER_MAIN_FXML = "views/teacherMain.fxml";
 
     public void navigateTo(Parent rootPane, String path) {
         try {

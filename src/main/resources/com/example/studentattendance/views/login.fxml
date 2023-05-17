@@ -11,7 +11,7 @@
         <Label layoutX="80.0" layoutY="115.0" text="Password" />
         <TextField fx:id="usernameField" layoutX="150.0" layoutY="80.0" />
         <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="110.0" />
-        <Button fx:id="submitButton" layoutX="150.0" layoutY="150.0" mnemonicParsing="false" text="Submit" />
+        <Button fx:id="submitButton" layoutX="150.0" layoutY="150.0" mnemonicParsing="false" text="Submit" onAction="#handleSubmitButtonAction"/>
         <Label fx:id="message" layoutX="19.0" layoutY="210.0" prefHeight="34.0" prefWidth="469.0">
             <font>
                 <Font size="23.0" />
