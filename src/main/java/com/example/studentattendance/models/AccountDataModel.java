@@ -94,8 +94,25 @@ public class AccountDataModel {
             account.setCode((int) (Math.random() * 100) + 100);
         }
     }
+
+    public static String getUsernameByCode(int code) {
+        for (Account account : accounts) {
+            if (account.getCode() == code) {
+                return account.getUsername();
+            }
+        }
+        return null;
+    }
+    public void setUsernameByCode(int code, String newUsername) {
+        for (Account account : accounts) {
+            if (account.getCode() == code) {
+                account.setUsername(newUsername);
+                break;
+            }
+        }
+    }
+
     public void removeAccount(Account account) {
         accounts.remove(account);
     }
-
 }

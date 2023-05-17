@@ -22,6 +22,8 @@ public class AdminController {
     @FXML
     private Button account;
     @FXML
+    private Button course;
+    @FXML
     private Label user;
     Navigation navigation = new Navigation();
   //  Account account=new Account();
@@ -32,6 +34,7 @@ public class AdminController {
     public void initialize(){
 //        user.setText(LoginController.getUsername());
         account.setOnAction(event -> handleAccountButton());
+        course.setOnAction(event -> handleCourseButton());
     }
     public void logout(ActionEvent event){
 
@@ -39,6 +42,10 @@ public class AdminController {
     }
     public void handleAccountButton(){
         navigation.navigateTo(adminPane,navigation.ACCOUNTS_FXML);
+
+    }
+    public void handleCourseButton(){
+        navigation.navigateTo(adminPane,navigation.LECTURE_FXML);
 
     }
     }
