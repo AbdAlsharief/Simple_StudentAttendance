@@ -34,8 +34,8 @@ public class LectureDataModel {
             } else {
                 ArrayList<Lecture> tempLectures = new ArrayList<>();
                 // add Test data when you run the program for the first time
-                tempLectures.add(new Lecture(1,1, "", "java", "aa"));
-                tempLectures.add(new Lecture(3,1,"" , "logic", "cc"));
+                tempLectures.add(new Lecture(1,122, "", "java", "aa"));
+                tempLectures.add(new Lecture(3,150,"" , "logic", "cc"));
                 lectures = tempLectures; // Assign the created list to the static variable
             }
         }

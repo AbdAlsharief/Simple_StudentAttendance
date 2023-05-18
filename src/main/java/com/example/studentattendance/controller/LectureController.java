@@ -55,7 +55,7 @@ public class LectureController {
 
     @FXML
     public void add() {
-        // TODO: Implement add functionality
+        navigation.navigateTo(lecturePane,navigation.ADD_LECTURE_FXML);
     }
 
     @FXML
