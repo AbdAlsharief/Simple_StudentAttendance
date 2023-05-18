@@ -5,15 +5,11 @@ import com.example.studentattendance.models.Account;
 import com.example.studentattendance.models.AccountDataModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-
-import java.io.IOException;
 
 public class AccountsController {
     @FXML
@@ -62,7 +58,7 @@ public class AccountsController {
     public void edit() {
         Account selectedAccount = tableView.getSelectionModel().getSelectedItem();
         if (selectedAccount != null) {
-            navigation.selectNavigateTo(accountPane, navigation.EDIT_ACCOUNTS_FXML, selectedAccount);
+            navigation.selectAccountNavigateTo(accountPane, navigation.EDIT_ACCOUNTS_FXML, selectedAccount);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Account Selected");

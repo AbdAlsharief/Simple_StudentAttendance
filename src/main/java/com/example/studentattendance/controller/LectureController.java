@@ -1,11 +1,11 @@
 package com.example.studentattendance.controller;
 
 import com.example.studentattendance.Navigation;
-import com.example.studentattendance.models.AccountDataModel;
 import com.example.studentattendance.models.Lecture;
 import com.example.studentattendance.models.LectureDataModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -60,7 +60,11 @@ public class LectureController {
 
     @FXML
     public void delete() {
-        // TODO: Implement delete functionality
+        Lecture selectedLecture = table.getSelectionModel().getSelectedItem();
+        if (selectedLecture != null) {
+            lectureDataModel.removeLecture(selectedLecture);
+            table.getItems().remove(selectedLecture);
+        }
     }
 
     @FXML
@@ -70,6 +74,15 @@ public class LectureController {
 
     @FXML
     public void edit() {
-        // TODO: Implement edit functionality
+        Lecture selectedLecture = table.getSelectionModel().getSelectedItem();
+        if (selectedLecture != null) {
+            navigation.selectLectureNavigateTo(lecturePane, navigation.EDIT_LECTURE_FXML, selectedLecture);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Account Selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an account to edit.");
+            alert.showAndWait();
+        }
     }
 }

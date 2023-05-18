@@ -65,7 +65,7 @@ LectureDataModel lectureDataModel = new LectureDataModel();
     private ArrayList<String> getTeacherUsernames() {
         ArrayList<String> teacherUsernames = new ArrayList<>();
         for (Account account : accountDataModel.getAccounts()) {
-            if (account.getCode() >= 100 && account.getCode() <= 200) {
+            if (account.getCode() >= 100 && account.getCode() < 200) {
                 teacherUsernames.add(account.getUsername());
             }
         }
