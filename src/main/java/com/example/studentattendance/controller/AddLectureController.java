@@ -3,7 +3,10 @@ package com.example.studentattendance.controller;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Account;
 import com.example.studentattendance.models.AccountDataModel;
+import com.example.studentattendance.models.Lecture;
+import com.example.studentattendance.models.LectureDataModel;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -29,7 +32,8 @@ private GridPane addGrid;
 
     @FXML
     private Button backButton;
-AccountDataModel accountDataModel = new AccountDataModel();
+LectureDataModel lectureDataModel = new LectureDataModel();
+    AccountDataModel accountDataModel = new AccountDataModel();
     private Navigation navigation= new Navigation();
     @FXML
     public void initialize() {
@@ -39,7 +43,18 @@ AccountDataModel accountDataModel = new AccountDataModel();
 
     @FXML
     private void save() {
-        // Handle save button action here
+        String selectedTeacherUsername = showTeacher.getValue();
+        int selectedTeacherCode = accountDataModel.getCodeByUsername(selectedTeacherUsername);
+
+        Lecture lecture1 = new Lecture(generateUniqueNumber(1000, 2000), selectedTeacherCode, selectedTeacherUsername, lecture.getText(), classroom.getText());
+        lectureDataModel.addLecture(lecture1);
+        lectureDataModel.saveLecture();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("The student has been added successfully");
+        alert.setTitle("Done");
+        alert.setContentText("Username: " + lecture.getText() + ", Password: " + classroom.getText());
+
+        alert.showAndWait();
     }
 
     @FXML
@@ -56,6 +71,26 @@ AccountDataModel accountDataModel = new AccountDataModel();
         }
         return teacherUsernames;
     }
+    private int generateUniqueNumber(int min, int max) {
+        int uniqueNumber;
+        boolean isUnique;
 
-    // Add additional methods and event handlers as needed
+        do {
+            uniqueNumber = (int) (Math.random() * (max - min + 1)) + min;
+            isUnique = true;
+
+            // Check if the generated number is already used as a code for another account
+            LectureDataModel lectureDataModel = new LectureDataModel();
+            for (Lecture lecture : lectureDataModel.getLectures()) {
+                if (lecture.getLCode() == uniqueNumber) {
+                    isUnique = false;
+                    break;
+                }
+            }
+        } while (!isUnique);
+
+        return uniqueNumber;
+    }
+
+
 }

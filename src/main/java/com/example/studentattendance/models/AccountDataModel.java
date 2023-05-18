@@ -94,7 +94,7 @@ public class AccountDataModel {
             account.setCode((int) (Math.random() * 100) + 100);
         }
     }
-// this get the Teacher_user_name
+
     public static String getUsernameByCode(int code) {
         for (Account account : accounts) {
             if (account.getCode() >= 100 && account.getCode() < 200 && account.getCode() == code) {
@@ -103,6 +103,16 @@ public class AccountDataModel {
         }
         return null;
     }
+
+    public int getCodeByUsername(String username) {
+        for (Account account : accounts) {
+            if (account.getUsername().equals(username)) {
+                return account.getCode();
+            }
+        }
+        return -1;
+    }
+
     public void setUsernameByCode(int code, String newUsername) {
         for (Account account : accounts) {
             if (account.getCode() == code) {

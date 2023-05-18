@@ -26,7 +26,7 @@ import java.util.Optional;
 
         @Override
         public void start(Stage primaryStage) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentattendance/views/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("views/login.fxml"));
             Parent root = loader.load();
 
             primaryStage.setScene(new Scene(root));
