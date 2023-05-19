@@ -52,7 +52,7 @@ LectureDataModel lectureDataModel = new LectureDataModel();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("The student has been added successfully");
         alert.setTitle("Done");
-        alert.setContentText("Username: " + lecture.getText() + ", Password: " + classroom.getText());
+        alert.setContentText("Name: " + lecture.getText() + ", Classroom: " + classroom.getText());
 
         alert.showAndWait();
     }

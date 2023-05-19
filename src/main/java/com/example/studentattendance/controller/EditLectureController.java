@@ -5,10 +5,14 @@ import com.example.studentattendance.models.Account;
 import com.example.studentattendance.models.AccountDataModel;
 import com.example.studentattendance.models.Lecture;
 import com.example.studentattendance.models.LectureDataModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 
@@ -22,10 +26,10 @@ public class EditLectureController {
     private ChoiceBox<String> showTeacher;
 
     @FXML
-    private TextField lecture;
+    private Button editButton;
 
     @FXML
-    private TextField classroom;
+    private Button backButton;
 
     private LectureDataModel lectureDataModel;
     private Navigation navigation;
@@ -39,14 +43,9 @@ public class EditLectureController {
 
     @FXML
     public void initialize() {
-        // Set the initial values for the choice box and text fields
-        if (selectedLecture != null) {
-            lecture.setText(selectedLecture.getLName());
-            classroom.setText(selectedLecture.getClassroom());
             showTeacher.getItems().addAll(getTeacherUsernames());
-            showTeacher.setValue(String.valueOf(getTeacherUsernames()));
         }
-    }
+
 
     private ArrayList<String> getTeacherUsernames() {
         ArrayList<String> teacherUsernames = new ArrayList<>();
@@ -58,21 +57,22 @@ public class EditLectureController {
         return teacherUsernames;
     }
 
+
+
     @FXML
     public void onSave() {
-        if (selectedLecture != null) {
-            String newLecture = lecture.getText();
-            String newClassroom = classroom.getText();
-            String newTeacherUsername = showTeacher.getValue();
+        String selectedTeacherUsername = showTeacher.getValue();
+        int selectedTeacherCode = accountDataModel.getCodeByUsername(selectedTeacherUsername);
 
-            selectedLecture.setLName(newLecture);
-            selectedLecture.setClassroom(newClassroom);
-            selectedLecture.setTeacher_name(newTeacherUsername);
+        Lecture editedLecture = new Lecture(selectedLecture.getLCode(), selectedTeacherCode, selectedTeacherUsername, selectedLecture.getLName(), selectedLecture.getClassroom());
+        lectureDataModel.addLecture(editedLecture);
+        lectureDataModel.removeLecture(selectedLecture);
+        lectureDataModel.saveLecture();
 
-            lectureDataModel.saveLecture();
-        }
-
-        navigation.navigateTo(editGrid, navigation.LECTURE_FXML);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("The lecture has been edited successfully");
+        alert.setTitle("Done");
+        alert.showAndWait();
     }
 
     @FXML

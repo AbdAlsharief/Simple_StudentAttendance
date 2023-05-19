@@ -1,15 +1,20 @@
 package com.example.studentattendance.controller;
 
 import com.example.studentattendance.Navigation;
+import com.example.studentattendance.models.Account;
 import com.example.studentattendance.models.Lecture;
 import com.example.studentattendance.models.LectureDataModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.converter.DefaultStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 public class LectureController {
 
@@ -23,13 +28,10 @@ public class LectureController {
     private TableColumn<Lecture, Integer> codeColumn;
     @FXML
     private TableColumn<Lecture, Integer> teacherCode;
-
     @FXML
     private TableColumn<Lecture, String> TeacherName;
-
     @FXML
     private TableColumn<Lecture, String> Lecture;
-
     @FXML
     private TableColumn<Lecture, String> Classroom;
 
@@ -41,21 +43,40 @@ public class LectureController {
         lectureDataModel = new LectureDataModel();
     }
 
-    @FXML
     public void initialize() {
         codeColumn.setCellValueFactory(new PropertyValueFactory<>("lCode"));
-       teacherCode.setCellValueFactory(new PropertyValueFactory<>("teacher_Code"));
+        teacherCode.setCellValueFactory(new PropertyValueFactory<>("teacher_Code"));
         TeacherName.setCellValueFactory(new PropertyValueFactory<>("teacher_name"));
         Lecture.setCellValueFactory(new PropertyValueFactory<>("lName"));
         Classroom.setCellValueFactory(new PropertyValueFactory<>("classroom"));
 
+
+
+
+
+
+        Lecture.setCellFactory(TextFieldTableCell.forTableColumn());
+        Lecture.setOnEditCommit(cellEditEvent -> {
+            Lecture lecture = cellEditEvent.getRowValue();
+            lecture.setLName(cellEditEvent.getNewValue());
+            // Update the data model or perform any other necessary actions
+        });
+
+        Classroom.setCellFactory(TextFieldTableCell.forTableColumn());
+        Classroom.setOnEditCommit(cellEditEvent -> {
+            Lecture lecture = cellEditEvent.getRowValue();
+            lecture.setClassroom(cellEditEvent.getNewValue());
+            // Update the data model or perform any other necessary actions
+        });
+
+        table.setEditable(true);
         table.setItems(FXCollections.observableArrayList(lectureDataModel.getLectures()));
         table.refresh();
     }
 
     @FXML
     public void add() {
-        navigation.navigateTo(lecturePane,navigation.ADD_LECTURE_FXML);
+        navigation.navigateTo(lecturePane, navigation.ADD_LECTURE_FXML);
     }
 
     @FXML
@@ -85,4 +106,6 @@ public class LectureController {
             alert.showAndWait();
         }
     }
+
+
 }

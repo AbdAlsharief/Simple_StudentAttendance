@@ -95,7 +95,7 @@ public class AccountDataModel {
         }
     }
 
-    public static String getUsernameByCode(int code) {
+    public  String getUsernameByCode(int code) {
         for (Account account : accounts) {
             if (account.getCode() >= 100 && account.getCode() < 200 && account.getCode() == code) {
                 return account.getUsername();
