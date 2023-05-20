@@ -3,12 +3,12 @@ package com.example.studentattendance.models;
 import java.util.ArrayList;
 
 public class Student extends Person {
-    private String ID;
+    private int ID;
     private String mobileNumber;
     private String residenceArea;
     private ArrayList<String> courses;
 
-    public Student(String name, String ID, String mobileNumber, String residenceArea) {
+    public Student( int ID,String name, String mobileNumber, String residenceArea) {
         super(name,mobileNumber,residenceArea);
         this.ID = ID;
         this.mobileNumber = mobileNumber;
@@ -16,11 +16,11 @@ public class Student extends Person {
         this.courses = new ArrayList<>();
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
