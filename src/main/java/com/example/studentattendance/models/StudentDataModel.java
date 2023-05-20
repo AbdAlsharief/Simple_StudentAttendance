@@ -98,16 +98,46 @@ public class StudentDataModel {
         return -1;
     }
 
-//    public void setUsernameByCode(int code, String newUsername) {
-//        for (Account account : accounts) {
-//            if (account.getCode() == code) {
-//                account.setUsername(newUsername);
-//                break;
-//            }
-//        }
-//    }
+   public void setNameById(int id, String name) {
+        for (Student student : students) {
+            if (student.getID() == id) {
+                student.setStudentName(name);
+                break;
+            }
+       }
+    }
 
-    public void removeStudent(ObservableList<Student> student) {
+    public void removeStudent(Student student) {
         students.remove(student);
     }
+
+    public boolean isIDUnique(int id) {
+        for (Student student : students) {
+            if (student.getID() == id) {
+                return false; // ID already exists
+            }
+        }
+        return true; // ID is unique
+    }
+    public int getNextUniqueID(int minId, int maxId) {
+        int id = minId;
+        boolean isUnique = false;
+
+        while (!isUnique) {
+            if (id > maxId) {
+                // Reset ID range if it exceeds the maximum
+                id = minId;
+            }
+
+            if (isIDUnique(id)) {
+                isUnique = true;
+            } else {
+                id++;
+            }
+        }
+
+        return id;
+    }
+
+
 }

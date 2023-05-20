@@ -2,12 +2,14 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="studentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentattendance.controller.StudentController">
    <top>
@@ -42,9 +44,14 @@
    <left>
       <VBox prefHeight="362.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="Add" onAction="#add" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Delete" onAction="#delete" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="Back" onAction="#back">
+            <Button mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="101.0" text="Add" />
+            <Button mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="100.0" text="Delete" />
+            <CheckBox fx:id="filterCheckBox" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Enable filter" onAction="#onFilter">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <Button mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="101.0" text="Back">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
