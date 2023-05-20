@@ -4,6 +4,7 @@
 import com.example.studentattendance.models.Account;
 import com.example.studentattendance.models.AccountDataModel;
 import com.example.studentattendance.models.LectureDataModel;
+import com.example.studentattendance.models.StudentDataModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,6 +51,8 @@ import java.util.Optional;
                 if (result.get() == save) {
                     AccountDataModel model = new AccountDataModel();
                     LectureDataModel lectureDataModel = new LectureDataModel();
+                    StudentDataModel studentDataModel = new StudentDataModel();
+                    studentDataModel.saveStudent();
                     lectureDataModel.saveLecture();
                     model.saveAccounts(); // Assuming you have a saveStudents() method in the DataModel class
                 } else if (result.get() == cancel) {

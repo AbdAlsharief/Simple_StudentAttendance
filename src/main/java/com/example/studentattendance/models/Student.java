@@ -2,34 +2,16 @@ package com.example.studentattendance.models;
 
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student {
     private int ID;
-    private String mobileNumber;
-    private String residenceArea;
-    private ArrayList<String> courses;
 
-    public Student( int ID,String name, String mobileNumber, String residenceArea) {
-        super(name,mobileNumber,residenceArea);
-        this.ID = ID;
-        this.mobileNumber = mobileNumber;
-        this.residenceArea = residenceArea;
-        this.courses = new ArrayList<>();
+    @Override
+    public String toString() {
+        return ID +","+ studentName +","+ mobileNumber +","+ residenceArea ;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
+    public String getStudentName() {
+        return studentName;
     }
 
     public String getResidenceArea() {
@@ -40,19 +22,47 @@ public class Student extends Person {
         this.residenceArea = residenceArea;
     }
 
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    private String studentName;
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    private String mobileNumber;
+
     public ArrayList<String> getCourses() {
         return courses;
     }
 
-    public void addCourse(String course) {
-        courses.add(course);
+    public void setCourses(ArrayList<String> courses) {
+        this.courses = courses;
     }
 
-    public void removeCourse(String course) {
-        courses.remove(course);
-    }
+    private String residenceArea;
+    private ArrayList<String> courses;
 
-    public boolean isTakingCourse(String course) {
-        return courses.contains(course);
+    public Student(int ID, String studentName, String mobileNumber, String residenceArea) {
+
+        this.ID = ID;
+        this.studentName = studentName;
+        this.mobileNumber = mobileNumber;
+        this.residenceArea = residenceArea;
     }
 }
+

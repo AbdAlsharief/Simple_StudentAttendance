@@ -1,5 +1,7 @@
 package com.example.studentattendance.models;
 
+import javafx.collections.ObservableList;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -35,17 +37,16 @@ public class StudentDataModel {
                 // add Test data when you run the program for the first time
                 students.add(new Student(1, "Student1","05932","adw" ));
                 students.add(new Student(2, "Student2","05942","awd" ));
-                students.add(new Student(3, "Student3","05952","awd" ));
-                students.add(new Student(4, "Student4", "05962","awds"));
+
             }
         }
     }
 
     public void saveStudent() {
         try (PrintWriter pw = new PrintWriter("student.csv")) {
-            pw.println("id,studentName,mobileNumber,password");
+            pw.println("id,studentName,mobileNumber,residenceArea");
             for (Student student : students) {
-                pw.println(student.getID() + "," + student.getName() + "," + student.getMobileNumber()+","+student.getResidenceArea());
+                pw.println(student.getID() + "," + student.getStudentName() + "," + student.getMobileNumber()+","+student.getResidenceArea());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -58,7 +59,7 @@ public class StudentDataModel {
 
     public Student getStudentByName(String name) {
         for (Student student : students) {
-            if (Objects.equals(student.getName(), name)) {
+            if (Objects.equals(student.getStudentName(), name)) {
                 return student;
             }
         }
@@ -71,7 +72,7 @@ public class StudentDataModel {
 
     public Student deleteAccountByName(String name) {
         for (Student student : students) {
-            if (Objects.equals(student.getName(), name)) {
+            if (Objects.equals(student.getStudentName(), name)) {
                 students.remove(student);
                 return student;
             }
@@ -82,7 +83,7 @@ public class StudentDataModel {
     public  String getNameById(int id) {
         for (Student student : students) {
             if ( student.getID() == id) {
-                return student.getName();
+                return student.getStudentName();
             }
         }
         return null;
@@ -90,7 +91,7 @@ public class StudentDataModel {
 
     public int getIdByName(String name) {
         for (Student student : students) {
-            if (student.getName().equals(name)) {
+            if (student.getStudentName().equals(name)) {
                 return student.getID();
             }
         }
@@ -106,7 +107,7 @@ public class StudentDataModel {
 //        }
 //    }
 
-    public void removeStudent(Student student) {
+    public void removeStudent(ObservableList<Student> student) {
         students.remove(student);
     }
 }

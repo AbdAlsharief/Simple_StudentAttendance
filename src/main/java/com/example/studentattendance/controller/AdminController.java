@@ -18,7 +18,7 @@ public class AdminController {
     private AnchorPane adminPane;
 
     @FXML
-    private Button out;
+    private Button student;
     @FXML
     private Button account;
     @FXML
@@ -35,6 +35,7 @@ public class AdminController {
 //        user.setText(LoginController.getUsername());
         account.setOnAction(event -> handleAccountButton());
         course.setOnAction(event -> handleCourseButton());
+        student.setOnAction(event -> handleStudentButton());
     }
     public void logout(ActionEvent event){
 
@@ -47,6 +48,9 @@ public class AdminController {
     public void handleCourseButton(){
         navigation.navigateTo(adminPane,navigation.LECTURE_FXML);
 
+    }
+    public void handleStudentButton(){
+        navigation.navigateTo(adminPane,navigation.Student_FXML);
     }
     }
 
