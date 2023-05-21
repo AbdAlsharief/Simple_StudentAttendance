@@ -45,7 +45,7 @@
       <VBox prefHeight="362.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="101.0" text="Add" />
-            <Button mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="100.0" text="Delete" />
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="100.0" text="Delete" />
             <CheckBox fx:id="filterCheckBox" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Enable filter" onAction="#onFilter">
                <font>
                   <Font size="14.0" />

@@ -51,6 +51,8 @@ public class StudentController {
 
     @FXML
     private TextField residenceAreaTextField;
+    @FXML
+    private Button delete;
 
     private Navigation navigation;
     private StudentDataModel studentDataModel;
@@ -77,7 +79,7 @@ public class StudentController {
         if (filterCheckBox.isSelected()) {
             tableView.setEditable(false);
             FilteredList<Student> filteredStudents = new FilteredList<>(originalStudents);
-
+            delete.setDisable(true);
             // Set the filtered list as the items in the TableView
             tableView.setItems(filteredStudents);
 
@@ -149,6 +151,7 @@ public class StudentController {
         } else {
             tableView.setEditable(true);
             tableView.setItems(originalStudents);
+            delete.setDisable(false);
         }
     }
 
