@@ -66,7 +66,7 @@ public class Teacher_Student {
         return attendance;
     }
 
-    public void setAttendance(int attendance) {
+    public  void setAttendance(int attendance) {
         this.attendance = attendance;
     }
 
@@ -77,7 +77,9 @@ public class Teacher_Student {
     }
 
     private int attendance;
+public Teacher_Student(){
 
+}
 
     public Teacher_Student(int student_ID,String student_name,int teacher_Code,String teacher_name,int l_Code ,String l_Name , int attendance) {
         this.student_ID=student_ID;

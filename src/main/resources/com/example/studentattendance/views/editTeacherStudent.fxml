@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="editPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentattendance.controller.EditTeacherStudentController">
+   <children>
+      <TextField fx:id="attendance" layoutX="194.0" layoutY="187.0" />
+      <Button layoutX="241.0" layoutY="289.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="66.0" text="Save" />
+      <Button layoutX="400.0" layoutY="61.0" mnemonicParsing="false" onAction="#check" text="check" />
+      <TextField fx:id="id" layoutX="40.0" layoutY="61.0" promptText="id" />
+      <TextField fx:id="lecture" layoutX="216.0" layoutY="61.0" promptText="lecture" />
+      <Button layoutX="243.0" layoutY="334.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="66.0" text="Back" />
+   </children>
+</AnchorPane>

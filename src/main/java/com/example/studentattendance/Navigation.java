@@ -27,6 +27,7 @@ public class Navigation {
     public final String Student_FXML = "views/student.fxml";
     public final String TEACHER__STUDENT_FXML = "views/teacher_Student.fxml";
     public final String ADD_STUDENT_FXML = "views/addStudent.fxml";
+    public final String EDIT_TEACHER_STUDENT_FXML = "views/editTeacherStudent.fxml";
     public void navigateTo(Parent rootPane, String path) {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(path)));

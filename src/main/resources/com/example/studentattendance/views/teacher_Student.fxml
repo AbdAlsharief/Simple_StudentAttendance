@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -16,48 +19,79 @@
     <children>
         <BorderPane layoutX="4.0" prefHeight="400.0" prefWidth="600.0">
             <bottom>
-                <HBox prefHeight="42.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                <HBox prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <GridPane prefHeight="44.0" prefWidth="600.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="138.0" text="Back">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets />
+                                    </GridPane.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#deleteTeacher_Student" prefHeight="26.0" prefWidth="188.0" text="Delete" GridPane.columnIndex="2">
+                                    <GridPane.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </GridPane.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#edit" prefHeight="46.0" prefWidth="198.0" text="Edit" GridPane.columnIndex="1" />
+                            </children>
+                        </GridPane>
+                    </children></HBox>
             </bottom>
-         <center>
-            <GridPane BorderPane.alignment="CENTER">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ChoiceBox fx:id="lectureChoiceBox" prefHeight="33.0" prefWidth="175.0" GridPane.rowIndex="2" />
-                  <ComboBox fx:id="studentComboBox" prefHeight="36.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="198.0" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="saveTeacher_Student"  mnemonicParsing="false" prefHeight="42.0" prefWidth="200.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#saveTeacher_Student">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
-                  <Label prefHeight="34.0" prefWidth="193.0" text="Choose Lecture" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="30.0" prefWidth="196.0" text="Choose Student" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </GridPane>
-         </center>
+            <top>
+                <HBox prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <GridPane prefHeight="47.0" prefWidth="601.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="46.599981689453124" minHeight="10.0" prefHeight="35.999993896484376" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="46.60001220703125" minHeight="10.0" prefHeight="36.000006103515624" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ChoiceBox fx:id="lectureChoiceBox" prefHeight="33.0" prefWidth="175.0" />
+                                <ComboBox fx:id="studentComboBox" prefHeight="36.0" prefWidth="246.0" GridPane.columnIndex="1" />
+                                <Label alignment="CENTER" prefHeight="29.0" prefWidth="194.0" text="Choose Lecture" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" prefHeight="38.0" prefWidth="200.0" text="Choose Student" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                        <Button mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="180.0" text="Add" GridPane.columnIndex="2" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </top>
+            <center>
+                <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="student_Name" prefWidth="89.59998321533203" text="Student Name" />
+                        <TableColumn fx:id="teacher_Name" prefWidth="86.39996337890625" text="Teacher name" />
+                        <TableColumn fx:id="lecture" prefWidth="80.79998779296875" text="Lecture" />
+                        <TableColumn fx:id="attendance" prefWidth="73.5999755859375" text="Attendance" />
+                    </columns>
+                </TableView>
+            </center>
         </BorderPane>
     </children>
 </AnchorPane>
