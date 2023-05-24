@@ -5,7 +5,7 @@ public class Lecture {
     private int lCode;
 
     public int getTeacher_Code() {
-        return teacher_Code;
+        return accountDataModel.getCodeByUsername(teacher_name);
     }
 
     public void setTeacher_Code(int teacher_Code) {

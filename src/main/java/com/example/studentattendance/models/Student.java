@@ -1,9 +1,16 @@
 package com.example.studentattendance.models;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+
 import java.util.ArrayList;
 
 public class Student {
     private int ID;
+    private BooleanProperty selected;
+    public Student(){
+        selected = new SimpleBooleanProperty(false);
+    }
 
     @Override
     public String toString() {
@@ -52,6 +59,17 @@ public class Student {
 
     public void setCourses(ArrayList<String> courses) {
         this.courses = courses;
+    }
+    public boolean isSelected() {
+        return selected.get();
+    }
+
+    public BooleanProperty selectedProperty() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected.set(selected);
     }
 
     private String residenceArea;

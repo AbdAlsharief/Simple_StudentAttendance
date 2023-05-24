@@ -34,8 +34,8 @@ public class LectureDataModel {
             } else {
                 ArrayList<Lecture> tempLectures = new ArrayList<>();
                 // add Test data when you run the program for the first time
-                tempLectures.add(new Lecture(1,122, "", "java", "aa"));
-                tempLectures.add(new Lecture(3,150,"" , "logic", "cc"));
+                tempLectures.add(new Lecture(1,120, "dfb", "java", "aa"));
+                tempLectures.add(new Lecture(3,150,"ad", "logic", "cc"));
                 lectures = tempLectures; // Assign the created list to the static variable
             }
         }
@@ -80,6 +80,22 @@ public class LectureDataModel {
             }
             return null;
         }
+    public int getLCodeByLName(String lName) {
+        for (Lecture lecture : lectures) {
+            if (Objects.equals(lecture.getLName(), lName)) {
+                return lecture.getLCode();
+            }
+        }
+        return -1;
+    }
+    public String getLNameByLCode(int code) {
+        for (Lecture lecture : lectures) {
+            if (lecture.getLCode() == code) {
+                return lecture.getLName();
+            }
+        }
+        return null;
+    }
 
 
         public void removeLecture(Lecture lecture) {

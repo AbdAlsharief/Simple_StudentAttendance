@@ -45,7 +45,7 @@ public class LectureController {
 
     public void initialize() {
         codeColumn.setCellValueFactory(new PropertyValueFactory<>("lCode"));
-        teacherCode.setCellValueFactory(new PropertyValueFactory<>("teacher_Code"));
+       teacherCode.setCellValueFactory(new PropertyValueFactory<>("teacher_Code"));
         TeacherName.setCellValueFactory(new PropertyValueFactory<>("teacher_name"));
         Lecture.setCellValueFactory(new PropertyValueFactory<>("lName"));
         Classroom.setCellValueFactory(new PropertyValueFactory<>("classroom"));

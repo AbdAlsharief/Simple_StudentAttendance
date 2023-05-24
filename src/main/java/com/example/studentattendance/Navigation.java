@@ -18,13 +18,14 @@ public class Navigation {
     public final String LECTURE_FXML = "views/lecture.fxml";
     public final String ADD_LECTURE_FXML = "views/addLecture.fxml";
     public final String EDIT_LECTURE_FXML = "views/editLecture.fxml";
-    public final String TEACHER_FXML = "views/teacher.fxml";
+    public final String TEACHER_FXML = "views/teacher_Student.fxml";
     public final String ACCOUNTS_FXML = "views/accounts.fxml";
     public final String ADD_ACCOUNTS_FXML = "views/addAccount.fxml";
     public final String DELETE_ACCOUNTS_FXML = "views/deleteAccount.fxml";
     public final String EDIT_ACCOUNTS_FXML = "views/editAccount.fxml";
     public final String TEACHER_MAIN_FXML = "views/teacherMain.fxml";
     public final String Student_FXML = "views/student.fxml";
+    public final String TEACHER__STUDENT_FXML = "views/teacher_Student.fxml";
     public final String ADD_STUDENT_FXML = "views/addStudent.fxml";
     public void navigateTo(Parent rootPane, String path) {
         try {

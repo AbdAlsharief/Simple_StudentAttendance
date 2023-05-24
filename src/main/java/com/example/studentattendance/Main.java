@@ -1,10 +1,7 @@
 
     package com.example.studentattendance;
 
-import com.example.studentattendance.models.Account;
-import com.example.studentattendance.models.AccountDataModel;
-import com.example.studentattendance.models.LectureDataModel;
-import com.example.studentattendance.models.StudentDataModel;
+import com.example.studentattendance.models.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,6 +29,7 @@ import java.util.Optional;
 
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Login");
+            primaryStage.resizableProperty();
             primaryStage.show();
 
             primaryStage.setOnCloseRequest(event -> {
@@ -52,8 +50,10 @@ import java.util.Optional;
                     AccountDataModel model = new AccountDataModel();
                     LectureDataModel lectureDataModel = new LectureDataModel();
                     StudentDataModel studentDataModel = new StudentDataModel();
+                    Teacher_StudentDataModel teacherStudentDataModel =new Teacher_StudentDataModel();
                     studentDataModel.saveStudent();
                     lectureDataModel.saveLecture();
+                    teacherStudentDataModel.saveTeacher_Student();
                     model.saveAccounts(); // Assuming you have a saveStudents() method in the DataModel class
                 } else if (result.get() == cancel) {
                     event.consume();
