@@ -1,10 +1,9 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Account;
-import com.example.studentattendance.models.AccountDataModel;
 import com.example.studentattendance.models.Lecture;
-import com.example.studentattendance.models.LectureDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -12,7 +11,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AddLectureController {
@@ -32,8 +30,8 @@ private GridPane addGrid;
 
     @FXML
     private Button backButton;
-LectureDataModel lectureDataModel = new LectureDataModel();
-    AccountDataModel accountDataModel = new AccountDataModel();
+DataModel.LectureDataModel lectureDataModel = new DataModel.LectureDataModel();
+    DataModel.AccountDataModel accountDataModel = new DataModel.AccountDataModel();
     private Navigation navigation= new Navigation();
     @FXML
     public void initialize() {
@@ -80,7 +78,7 @@ LectureDataModel lectureDataModel = new LectureDataModel();
             isUnique = true;
 
             // Check if the generated number is already used as a code for another account
-            LectureDataModel lectureDataModel = new LectureDataModel();
+            DataModel.LectureDataModel lectureDataModel = new DataModel.LectureDataModel();
             for (Lecture lecture : lectureDataModel.getLectures()) {
                 if (lecture.getLCode() == uniqueNumber) {
                     isUnique = false;

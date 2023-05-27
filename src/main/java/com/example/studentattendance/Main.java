@@ -1,7 +1,6 @@
 
     package com.example.studentattendance;
 
-import com.example.studentattendance.models.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -47,10 +46,10 @@ import java.util.Optional;
                 Optional<ButtonType> result = alert.showAndWait();
 
                 if (result.get() == save) {
-                    AccountDataModel model = new AccountDataModel();
-                    LectureDataModel lectureDataModel = new LectureDataModel();
-                    StudentDataModel studentDataModel = new StudentDataModel();
-                    Teacher_StudentDataModel teacherStudentDataModel =new Teacher_StudentDataModel();
+                    DataModel.AccountDataModel model = new DataModel.AccountDataModel();
+                    DataModel.LectureDataModel lectureDataModel = new DataModel.LectureDataModel();
+                    DataModel.StudentDataModel studentDataModel = new DataModel.StudentDataModel();
+                    DataModel.Teacher_StudentDataModel teacherStudentDataModel =new DataModel.Teacher_StudentDataModel();
                     studentDataModel.saveStudent();
                     lectureDataModel.saveLecture();
                     teacherStudentDataModel.saveTeacher_Student();

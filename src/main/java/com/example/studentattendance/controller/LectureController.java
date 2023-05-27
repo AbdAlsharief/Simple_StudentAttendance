@@ -1,20 +1,16 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
-import com.example.studentattendance.models.Account;
 import com.example.studentattendance.models.Lecture;
-import com.example.studentattendance.models.LectureDataModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.converter.DefaultStringConverter;
-import javafx.util.converter.IntegerStringConverter;
 
 public class LectureController {
 
@@ -36,11 +32,11 @@ public class LectureController {
     private TableColumn<Lecture, String> Classroom;
 
     private Navigation navigation;
-    private LectureDataModel lectureDataModel;
+    private DataModel.LectureDataModel lectureDataModel;
 
     public LectureController() {
         navigation = new Navigation();
-        lectureDataModel = new LectureDataModel();
+        lectureDataModel = new DataModel.LectureDataModel();
     }
 
     public void initialize() {

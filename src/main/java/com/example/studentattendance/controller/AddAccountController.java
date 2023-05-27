@@ -1,8 +1,8 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Account;
-import com.example.studentattendance.models.AccountDataModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -17,7 +17,7 @@ public class AddAccountController implements Initializable {
     @FXML
     private VBox addPane;
 
-    private AccountDataModel model;
+    private DataModel.AccountDataModel model;
     private Navigation navigation;
 
     @FXML
@@ -28,7 +28,7 @@ public class AddAccountController implements Initializable {
     private CheckBox check ;
 
     public AddAccountController() {
-        model = new AccountDataModel();
+        model = new DataModel.AccountDataModel();
         navigation = new Navigation();
     }
 
@@ -82,7 +82,7 @@ public class AddAccountController implements Initializable {
             isUnique = true;
 
             // Check if the generated number is already used as a code for another account
-            AccountDataModel accountDataModel = new AccountDataModel();
+            DataModel.AccountDataModel accountDataModel = new DataModel.AccountDataModel();
             for (Account account : accountDataModel.getAccounts()) {
                 if (account.getCode() == uniqueNumber) {
                     isUnique = false;

@@ -1,5 +1,6 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.*;
 import javafx.collections.FXCollections;
@@ -34,14 +35,14 @@ public class Teacher_StudentController {
     @FXML
     private TableColumn<Teacher_Student,Integer> attendance;
 
-    private LectureDataModel lectureDataModel;
+    private DataModel.LectureDataModel lectureDataModel;
     private Navigation navigation;
 
-    private Teacher_StudentDataModel teacher_studentDataModel;
-    private StudentDataModel studentDataModel;
+    private DataModel.Teacher_StudentDataModel teacher_studentDataModel;
+    private DataModel.StudentDataModel studentDataModel;
     private ObservableList<Student> originalStudents;
     private ObservableList<Teacher_Student> Teacher_Student;
-    private AccountDataModel accountDataModel =new AccountDataModel();
+    private DataModel.AccountDataModel accountDataModel =new DataModel.AccountDataModel();
 //    private static Student selectedStudent;
 private static String selectedStudentString ;
 private static Student   selectedStudent ;
@@ -49,10 +50,10 @@ private static Student   selectedStudent ;
 
     public Teacher_StudentController(){
         navigation = new Navigation();
-        teacher_studentDataModel=new Teacher_StudentDataModel();
-        studentDataModel=new StudentDataModel();
+        teacher_studentDataModel=new DataModel.Teacher_StudentDataModel();
+        studentDataModel=new DataModel.StudentDataModel();
         originalStudents = FXCollections.observableArrayList(studentDataModel.getStudents());
-        lectureDataModel = new LectureDataModel();
+        lectureDataModel = new DataModel.LectureDataModel();
         Teacher_Student = FXCollections.observableArrayList(teacher_studentDataModel.getTeacher_StudentsByTeacherName(LoginController.loggedInUsername));
     }
 

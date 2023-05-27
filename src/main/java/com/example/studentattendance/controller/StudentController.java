@@ -1,21 +1,16 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
-import com.example.studentattendance.models.Lecture;
 import com.example.studentattendance.models.Student;
-import com.example.studentattendance.models.StudentDataModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class StudentController {
@@ -55,12 +50,12 @@ public class StudentController {
     private Button delete;
 
     private Navigation navigation;
-    private StudentDataModel studentDataModel;
+    private DataModel.StudentDataModel studentDataModel;
     private ObservableList<Student> originalStudents;
 
     public StudentController() {
         navigation = new Navigation();
-        studentDataModel = new StudentDataModel();
+        studentDataModel = new DataModel.StudentDataModel();
         originalStudents = FXCollections.observableArrayList(studentDataModel.getStudents());
     }
 

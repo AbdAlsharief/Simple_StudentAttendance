@@ -1,9 +1,8 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
-import com.example.studentattendance.models.LectureDataModel;
 import com.example.studentattendance.models.Teacher_Student;
-import com.example.studentattendance.models.Teacher_StudentDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -25,8 +24,8 @@ public class ReportController {
     Navigation navigation = new Navigation();
     @FXML
     private TextField id;
-    private Teacher_StudentDataModel teacher_studentDataModel = new Teacher_StudentDataModel();
-    LectureDataModel lectureDataModel = new LectureDataModel();
+    private DataModel.Teacher_StudentDataModel teacher_studentDataModel = new DataModel.Teacher_StudentDataModel();
+    DataModel.LectureDataModel lectureDataModel = new DataModel.LectureDataModel();
 
 
     public void initialize() {

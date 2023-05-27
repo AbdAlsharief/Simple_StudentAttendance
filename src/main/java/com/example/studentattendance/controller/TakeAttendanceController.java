@@ -1,13 +1,12 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Teacher_Student;
-import com.example.studentattendance.models.Teacher_StudentDataModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -18,8 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
@@ -42,7 +39,7 @@ public class TakeAttendanceController {
     private TextField id;
     private FilteredList<Teacher_Student> filteredData;
 
-    private Teacher_StudentDataModel teacher_studentDataModel = new Teacher_StudentDataModel();
+    private DataModel.Teacher_StudentDataModel teacher_studentDataModel = new DataModel.Teacher_StudentDataModel();
     private Navigation navigation = new Navigation();
 
     public void initialize() {

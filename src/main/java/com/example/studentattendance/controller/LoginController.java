@@ -1,8 +1,8 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Account;
-import com.example.studentattendance.models.AccountDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -10,8 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Alert.AlertType;
-
-import javax.imageio.IIOParam;
 
 public class LoginController {
     @FXML
@@ -28,7 +26,7 @@ public class LoginController {
     static String loggedInUsername;
 
     private Navigation navigation = new Navigation();
-    private AccountDataModel model = new AccountDataModel();
+    private DataModel.AccountDataModel model = new DataModel.AccountDataModel();
 
     @FXML
     public void initialize() {

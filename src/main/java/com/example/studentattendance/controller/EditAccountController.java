@@ -1,8 +1,8 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Account;
-import com.example.studentattendance.models.AccountDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -17,12 +17,12 @@ public class EditAccountController {
     @FXML
     private TextField password;
 
-    private AccountDataModel model;
+    private DataModel.AccountDataModel model;
     private Navigation navigation;
     private Account selectedAccount;
 
     public EditAccountController() {
-        model = new AccountDataModel();
+        model = new DataModel.AccountDataModel();
         navigation = new Navigation();
     }
 

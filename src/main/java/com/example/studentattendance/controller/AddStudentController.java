@@ -1,8 +1,8 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Student;
-import com.example.studentattendance.models.StudentDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -29,12 +29,12 @@ public class AddStudentController {
     private Button backButton;
 
     private Navigation navigation;
-    private StudentDataModel studentDataModel;
+    private DataModel.StudentDataModel studentDataModel;
     private ToggleGroup genderToggleGroup;
 
     public AddStudentController() {
         navigation = new Navigation();
-        studentDataModel = new StudentDataModel();
+        studentDataModel = new DataModel.StudentDataModel();
         genderToggleGroup = new ToggleGroup();
     }
 

@@ -1,9 +1,8 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Lecture;
-import com.example.studentattendance.models.LectureDataModel;
-import com.example.studentattendance.models.Teacher_StudentDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
@@ -16,7 +15,7 @@ public class AttendanceController {
     private AnchorPane attendancePane;
     @FXML
     private ChoiceBox<String> lectureChoiceBox;
-    LectureDataModel lectureDataModel=new LectureDataModel();
+    DataModel.LectureDataModel lectureDataModel=new DataModel.LectureDataModel();
 Navigation navigation=new Navigation();
 
 @FXML

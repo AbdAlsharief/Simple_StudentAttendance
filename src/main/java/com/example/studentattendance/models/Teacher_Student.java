@@ -1,7 +1,6 @@
 package com.example.studentattendance.models;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
+import com.example.studentattendance.DataModel;
 import javafx.scene.control.CheckBox;
 
 public class Teacher_Student {
@@ -11,7 +10,7 @@ public class Teacher_Student {
     private CheckBox selected;
 
 
-    AccountDataModel accountDataModel= new AccountDataModel();
+    DataModel.AccountDataModel accountDataModel= new DataModel.AccountDataModel();
 //    LectureDataModel lectureDataModel =new LectureDataModel();
 public Teacher_Student(int student_ID, String student_name) {
     this.student_ID = student_ID;
@@ -32,7 +31,7 @@ public Teacher_Student(int student_ID, String student_name) {
         return l_Code;
     }
 
-    public AccountDataModel getAccountDataModel() {
+    public DataModel.AccountDataModel getAccountDataModel() {
         return accountDataModel;
     }
 

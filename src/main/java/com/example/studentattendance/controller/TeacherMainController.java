@@ -1,7 +1,7 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
-import com.example.studentattendance.models.Teacher_StudentDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -12,7 +12,7 @@ public class TeacherMainController {
     @FXML
     private Label username;
     Navigation navigation =new Navigation();
-   private Teacher_StudentDataModel teacherStudentDataModel=new Teacher_StudentDataModel();
+   private DataModel.Teacher_StudentDataModel teacherStudentDataModel=new DataModel.Teacher_StudentDataModel();
     @FXML
     public void initialize() {
         username.setText(LoginController.loggedInUsername);

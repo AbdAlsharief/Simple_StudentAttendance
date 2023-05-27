@@ -1,8 +1,7 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
-import com.example.studentattendance.models.Teacher_Student;
-import com.example.studentattendance.models.Teacher_StudentDataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -20,7 +19,7 @@ public class EditTeacherStudentController {
     @FXML
     private Button saveButton;
 
-    private Teacher_StudentDataModel teacherStudentDataModel = new Teacher_StudentDataModel();
+    private DataModel.Teacher_StudentDataModel teacherStudentDataModel = new DataModel.Teacher_StudentDataModel();
     private int studentID;
     Navigation navigation = new Navigation();
     private String lectureName;

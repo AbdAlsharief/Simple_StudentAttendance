@@ -1,8 +1,8 @@
 package com.example.studentattendance.controller;
 
+import com.example.studentattendance.DataModel;
 import com.example.studentattendance.Navigation;
 import com.example.studentattendance.models.Account;
-import com.example.studentattendance.models.AccountDataModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -27,7 +27,7 @@ public class AccountsController {
     private TableColumn<Account, String> passwordColumn;
     Navigation navigation = new Navigation();
 
-    AccountDataModel model = new AccountDataModel();
+    DataModel.AccountDataModel model = new DataModel.AccountDataModel();
 
     public AccountsController() {
 

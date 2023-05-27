@@ -1,7 +1,9 @@
 package com.example.studentattendance.models;
 
+import com.example.studentattendance.DataModel;
+
 public class Lecture {
-    AccountDataModel accountDataModel = new AccountDataModel();
+    DataModel.AccountDataModel accountDataModel = new DataModel.AccountDataModel();
     private int lCode;
 
     public int getTeacher_Code() {
