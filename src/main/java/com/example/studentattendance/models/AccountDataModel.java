@@ -37,10 +37,10 @@ public class AccountDataModel {
             } else {
                 accounts = new ArrayList<>();
                 // add Test data when you run the program for the first time
-                accounts.add(new Account(1, "Student1", "aa"));
-                accounts.add(new Account(2, "Student2", "bb"));
-                accounts.add(new Account(3, "Student3", "cc"));
-                accounts.add(new Account(4, "Student4", "dd"));
+                accounts.add(new Account(1, "admin", "admin"));
+                accounts.add(new Account(2, "admin2", "admin2"));
+                accounts.add(new Account(150, "teacher", "teacher"));
+                accounts.add(new Account(140, "teacher", "teacher"));
             }
         }
     }
