@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="takePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentattendance.controller.TakeAttendanceController">
+   <children>
+      <TableView fx:id="tableView" layoutX="3.0" layoutY="61.0" prefHeight="331.0" prefWidth="594.0">
+        <columns>
+          <TableColumn fx:id="studentId" prefWidth="166.39996337890625" text="ID" />
+          <TableColumn fx:id="studentName" prefWidth="241.60003662109375" text="Name" />
+            <TableColumn fx:id="select" prefWidth="75.0" text="Select" />
+        </columns>
+      </TableView>
+      <Button layoutX="297.0" layoutY="16.0" mnemonicParsing="false" onAction="#selectAll" prefHeight="32.0" prefWidth="92.0" text="Select All" />
+      <Button layoutX="507.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBack" prefHeight="32.0" prefWidth="70.0" text="Back" />
+      <TextField fx:id="id" layoutX="14.0" layoutY="19.0" prefHeight="26.0" prefWidth="210.0" promptText="ID" text="ID , Name" />
+      <Button layoutX="414.0" layoutY="18.0" mnemonicParsing="false" onAction="#excelPath" prefHeight="26.0" prefWidth="70.0" text="Excel Path" />
+   </children>
+</AnchorPane>

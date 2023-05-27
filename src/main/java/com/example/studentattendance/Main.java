@@ -28,7 +28,7 @@ import java.util.Optional;
             Parent root = loader.load();
 
             primaryStage.setScene(new Scene(root));
-            primaryStage.setTitle("Login");
+            primaryStage.setTitle("Student Attendance");
             primaryStage.resizableProperty();
             primaryStage.show();
 

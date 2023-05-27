@@ -21,13 +21,16 @@ public class Navigation {
     public final String TEACHER_FXML = "views/teacher_Student.fxml";
     public final String ACCOUNTS_FXML = "views/accounts.fxml";
     public final String ADD_ACCOUNTS_FXML = "views/addAccount.fxml";
-    public final String DELETE_ACCOUNTS_FXML = "views/deleteAccount.fxml";
+
     public final String EDIT_ACCOUNTS_FXML = "views/editAccount.fxml";
     public final String TEACHER_MAIN_FXML = "views/teacherMain.fxml";
     public final String Student_FXML = "views/student.fxml";
     public final String TEACHER__STUDENT_FXML = "views/teacher_Student.fxml";
     public final String ADD_STUDENT_FXML = "views/addStudent.fxml";
     public final String EDIT_TEACHER_STUDENT_FXML = "views/editTeacherStudent.fxml";
+    public final String ATTENDANCE_FXML = "views/attendance.fxml";
+    public final String TAKE_ATTENDANCE_FXML = "views/takeAttendance.fxml";
+    public final String REPORT_FXML = "views/report.fxml";
     public void navigateTo(Parent rootPane, String path) {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(path)));

@@ -78,5 +78,7 @@ public class EditTeacherStudentController {
     }
     public void back(){
         navigation.navigateTo(editPane,navigation.TEACHER__STUDENT_FXML);
+
     }
+
 }

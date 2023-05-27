@@ -53,12 +53,11 @@ private static Student   selectedStudent ;
         studentDataModel=new StudentDataModel();
         originalStudents = FXCollections.observableArrayList(studentDataModel.getStudents());
         lectureDataModel = new LectureDataModel();
-        Teacher_Student = FXCollections.observableArrayList(teacher_studentDataModel.getTeacher_students());
+        Teacher_Student = FXCollections.observableArrayList(teacher_studentDataModel.getTeacher_StudentsByTeacherName(LoginController.loggedInUsername));
     }
 
     public void initialize() {
         try {
-
             ID.setCellValueFactory(new PropertyValueFactory<>("student_ID"));
             student_Name.setCellValueFactory(new PropertyValueFactory<>("student_name"));
             teacher_Name.setCellValueFactory(new PropertyValueFactory<>("teacher_name"));
@@ -198,6 +197,7 @@ private static Student   selectedStudent ;
 
 
         }
+//        teacher_studentDataModel.checkAndUpdateAttendance();
     }
 //        studentComboBox.setOnAction((event) -> {
 //            Student selectedStudent = studentComboBox.getSelectionModel().getSelectedItem();
@@ -327,7 +327,12 @@ private static Student   selectedStudent ;
         navigation.navigateTo(teacherPane,navigation.EDIT_TEACHER_STUDENT_FXML);
     }
     public void back(){
-        navigation.navigateTo(teacherPane,navigation.TEACHER_MAIN_FXML);
+        try {
+            teacher_studentDataModel.checkAndUpdateAttendance();
+            navigation.navigateTo(teacherPane, navigation.TEACHER_MAIN_FXML);
+        }catch (Exception e){
+            System.out.println("All is good");
+        }
     }
 
 }

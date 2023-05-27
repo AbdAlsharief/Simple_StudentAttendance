@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.9.1</junit.version>
+        <junit.version>5.9.2</junit.version>
     </properties>
 
     <dependencies>
@@ -37,6 +37,51 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.aafc-bicoe</groupId>
+            <artifactId>dina-workbook</artifactId>
+            <version>0.102</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dhatim</groupId>
+            <artifactId>fastexcel-parent</artifactId>
+            <version>0.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dhatim</groupId>
+            <artifactId>fastexcel</artifactId>
+            <version>0.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dhatim</groupId>
+            <artifactId>fastexcel-reader</artifactId>
+            <version>0.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dhatim</groupId>
+            <artifactId>fastexcel-e2e</artifactId>
+            <version>0.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gitlab.cdc-java.impex</groupId>
+            <artifactId>cdc-impex-core-workbooks</artifactId>
+            <version>0.24.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cookbook-storm-project</groupId>
+            <artifactId>lein-template</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gitlab.cdc-java.office</groupId>
+            <artifactId>cdc-office-ss</artifactId>
+            <version>0.29.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gitlab.cdc-java.impex</groupId>
+            <artifactId>cdc-impex-api</artifactId>
+            <version>0.24.3</version>
         </dependency>
     </dependencies>
 
@@ -74,4 +119,11 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars</name>
+            <url>https://repo.clojars.org/</url>
+        </repository>
+    </repositories>
 </project>

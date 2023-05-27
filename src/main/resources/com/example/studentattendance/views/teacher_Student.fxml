@@ -31,7 +31,7 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="138.0" text="Back">
+                                <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="138.0" text="Back" onAction="#back">
                                     <font>
                                         <Font size="14.0" />
                                     </font>

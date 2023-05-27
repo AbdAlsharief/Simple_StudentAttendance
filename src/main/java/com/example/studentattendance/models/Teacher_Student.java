@@ -1,13 +1,29 @@
 package com.example.studentattendance.models;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.scene.control.CheckBox;
+
 public class Teacher_Student {
     private int student_ID;
     private String student_name;
     private int l_Code;
+    private CheckBox selected;
+
+
     AccountDataModel accountDataModel= new AccountDataModel();
 //    LectureDataModel lectureDataModel =new LectureDataModel();
-
-
+public Teacher_Student(int student_ID, String student_name) {
+    this.student_ID = student_ID;
+    this.student_name = student_name;
+   this.selected = new CheckBox();
+}
+ public CheckBox getSelected(){
+    return selected;
+ }
+ public void setSelected(CheckBox selected){
+    this.selected=selected;
+ }
     public String getStudent_name() {
         return student_name;
     }
@@ -89,6 +105,7 @@ public Teacher_Student(){
         this.l_Code=l_Code;
         this.l_Name=l_Name;
         this.attendance=attendance;
+        this.selected = new CheckBox();
     }
 
     public void setStudent_ID(int student_ID){
