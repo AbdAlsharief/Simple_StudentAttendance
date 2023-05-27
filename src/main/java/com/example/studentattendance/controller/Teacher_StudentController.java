@@ -329,6 +329,7 @@ private static Student   selectedStudent ;
     }
     public void back(){
         try {
+            teacher_studentDataModel.saveTeacher_Student();
             teacher_studentDataModel.checkAndUpdateAttendance();
             navigation.navigateTo(teacherPane, navigation.TEACHER_MAIN_FXML);
         }catch (Exception e){
