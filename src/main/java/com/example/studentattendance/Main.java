@@ -28,8 +28,11 @@ import java.util.Optional;
 
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Student Attendance");
-            primaryStage.resizableProperty();
+            primaryStage.setWidth(600);
+            primaryStage.setHeight(450);
+            primaryStage.setResizable(false);
             primaryStage.show();
+
 
             primaryStage.setOnCloseRequest(event -> {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

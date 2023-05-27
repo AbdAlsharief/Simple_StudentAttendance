@@ -9,6 +9,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 
 import java.util.Optional;
@@ -65,14 +66,29 @@ public class StudentController {
         mobileNumberColumn.setCellValueFactory(new PropertyValueFactory<>("mobileNumber"));
         residenceAreaColumn.setCellValueFactory(new PropertyValueFactory<>("residenceArea"));
 
-        tableView.setEditable(false);
+        tableView.setEditable(true);
+        studentNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        studentNameColumn.setOnEditCommit(event -> {
+            Student student = event.getRowValue();
+            student.setStudentName(event.getNewValue());
+        });
+        mobileNumberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        mobileNumberColumn.setOnEditCommit(event -> {
+            Student student = event.getRowValue();
+            student.setMobileNumber(event.getNewValue());
+        });
+
+        residenceAreaColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        residenceAreaColumn.setOnEditCommit(event -> {
+            Student student = event.getRowValue();
+            student.setResidenceArea(event.getNewValue());
+        });
         tableView.setItems(originalStudents);
     }
 
     @FXML
     public void onFilter() {
         if (filterCheckBox.isSelected()) {
-            tableView.setEditable(false);
             FilteredList<Student> filteredStudents = new FilteredList<>(originalStudents);
             delete.setDisable(true);
             // Set the filtered list as the items in the TableView
