@@ -1,0 +1,98 @@
+@startuml
+
+
+package "com.example.studentattendance" {
+
+  class DataModel {
+
+    class AccountDataModel {
+      - accounts: ArrayList<Account>
+      + initialize()
+      + saveAccounts()
+      + addAccount(account: Account)
+      + getAccountByUsername(username: String): Account
+      + getAccounts(): ArrayList<Account>
+      + deleteAccountByUsername(username: String): Account
+      + isAdmin(account: Account): boolean
+      + updateAccountCode(account: Account)
+      + getUsernameByCode(code: int): String
+      + getCodeByUsername(username: String): int
+      + setUsernameByCode(code: int, newUsername: String)
+      + removeAccount(account: Account)
+    }
+
+    class LectureDataModel {
+      - lectures: ArrayList<Lecture>
+      + initialize()
+      + saveLecture()
+      + addLecture(lecture: Lecture)
+      + getLectureByLName(name: String): Lecture
+      + getLectures(): ArrayList<Lecture>
+      + deleteLectureByName(name: String): Lecture
+      + getLCodeByLName(lName: String): int
+      + getLNameByLCode(code: int): String
+      + getTeacherNameByLName(lName: String): String
+      + removeLecture(lecture: Lecture)
+    }
+
+    class StudentDataModel {
+      - students: ArrayList<Student>
+      - person: Person
+      + initialize()
+      + saveStudent()
+      + addStudent(student: Student)
+      + getStudentByName(name: String): Student
+      + getStudents(): ArrayList<Student>
+      + deleteAccountByName(name: String): Student
+      + getNameById(id: int): String
+      + getIdByName(name: String): int
+      + setNameById(id: int, name: String)
+      + removeStudent(student: Student)
+      + isIDUnique(id: int): boolean
+      + getNextUniqueID(minId: int, maxId: int): int
+    }
+
+    class Teacher_StudentDataModel {
+      - teacher_students: ArrayList<Teacher_Student>
+      + initialize()
+      + saveTeacher_Student()
+      + addTeacher_Student(teacher_student: Teacher_Student)
+      + getTeacher_students(): ArrayList<Teacher_Student>
+      + removeTeacher_Student(teacher_student: Teacher_Student)
+      + updateTeacher_Student(updatedTeacherStudent: Teacher_Student)
+      + getAttendanceByIdAndLecture(studentID: int, lectureName: String): int
+      + updateAttendanceByIdAndLecture(studentID: int, lectureName: String, newAttendance: int)
+      + checkAndUpdateAttendance()
+      + getTeacher_StudentsByLectureName(lectureName: String): ArrayList<Teacher_Student>
+    }
+
+    class Person {
+      // attributes and methods for Person class
+    }
+
+  }
+
+  class Account {
+    // attributes and methods for Account class
+  }
+
+  class Lecture {
+    // attributes and methods for Lecture class
+  }
+
+  class Student {
+    // attributes and methods for Student class
+  }
+
+  class Teacher_Student {
+    // attributes and methods for Teacher_Student class
+  }
+
+}
+
+'DataModel --right--> AccountDataModel
+'DataModel --right--> LectureDataModel
+'DataModel --right--> StudentDataModel
+'DataModel --right--> Teacher_StudentDataModel
+
+@enduml

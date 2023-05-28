@@ -1,0 +1,136 @@
+@startuml
+class Account {
+  - code: int
+  - username: String
+  - password: String
+
+  + Account()
+  + Account(code: int, username: String, password: String)
+  + getCode(): int
+  + setCode(code: int): void
+  + getUsername(): String
+  + setUsername(username: String): void
+  + getPassword(): String
+  + setPassword(password: String): void
+  + equals(o: Object): boolean
+  + hashCode(): int
+  + toString(): String
+}
+
+class Lecture {
+  - accountDataModel: AccountDataModel
+  - lCode: int
+  - teacher_Code: int
+  - teacher_name: String
+  - lName: String
+  - classroom: String
+  - account: Account
+
+  + Lecture()
+  + Lecture(lCode: int, teacher_Code: int, teacher_name: String, lName: String, classroom: String)
+  + getTeacher_Code(): int
+  + setTeacher_Code(teacher_Code: int): void
+  + getTeacher_name(): String
+  + setTeacher_name(teacher_name: String): void
+  + getLCode(): int
+  + setLCode(lCode: int): void
+  + getLName(): String
+  + setLName(lName: String): void
+  + getClassroom(): String
+  + setClassroom(classroom: String): void
+  + toString(): String
+}
+class Person {
+  - name: String
+  - mobileNumber: String
+  - residenceArea: String
+
+  + Person(name: String, mobileNumber: String, residenceArea: String)
+  + Person()
+  + getName(): String
+  + setName(name: String): void
+  + getMobileNumber(): String
+  + setMobileNumber(mobileNumber: String): void
+  + getResidenceArea(): String
+  + setResidenceArea(residenceArea: String): void
+  + toString(): String
+}
+class Student {
+  - ID: int
+  - selected: BooleanProperty
+  - studentName: String
+  - mobileNumber: String
+  - residenceArea: String
+  - courses: ArrayList<String>
+
+  + Student()
+  + toString(): String
+  + getStudentName(): String
+  + getResidenceArea(): String
+  + setResidenceArea(residenceArea: String): void
+  + setStudentName(studentName: String): void
+  + getID(): int
+  + setID(ID: int): void
+  + getMobileNumber(): String
+  + setMobileNumber(mobileNumber: String): void
+  + getCourses(): ArrayList<String>
+  + setCourses(courses: ArrayList<String>): void
+  + isSelected(): boolean
+  + selectedProperty(): BooleanProperty
+  + setSelected(selected: boolean): void
+}
+
+class Teacher {
+  - subject: String
+  - book: String
+  - hall: String
+  - username: String
+  - password: String
+
+  + Teacher(code: int, username: String, password: String)
+  + Teacher(name: String, mobileNumber: String, residenceArea: String, subject: String, book: String, hall: String)
+  + getSubject(): String
+  + setSubject(subject: String): void
+  + getBook(): String
+  + setBook(book: String): void
+  + getHall(): String
+  + setHall(hall: String): void
+  + getName(): String
+  + getMobileNumber(): String
+  + getResidenceArea(): String
+  + setName(name: String): void
+  + setMobileNumber(mobileNumber: String): void
+  + setResidenceArea(residenceArea: String): void
+}
+class Teacher_Student {
+  - student_ID: int
+  - student_name: String
+  - l_Code: int
+  - selected: CheckBox
+  - accountDataModel: DataModel.AccountDataModel
+  - teacher_Code: int
+  - teacher_name: String
+  - l_Name: String
+  - attendance: int
+
+  + Teacher_Student(student_ID: int, student_name: String)
+  + getSelected(): CheckBox
+  + setSelected(selected: CheckBox): void
+  + getStudent_name(): String
+  + getL_Code(): int
+  + getAccountDataModel(): DataModel.AccountDataModel
+  + getL_Name(): String
+  + getStudent_ID(): int
+  + getTeacher_Code(): int
+  + getTeacher_name(): String
+  + setTeacher_name(teacher_name: String): void
+  + setTeacher_Code(teacher_Code: int): void
+  + setStudent_name(student_name: String): void
+  + setL_Code(l_Code: int): void
+  + getAttendance(): int
+  + setAttendance(attendance: int): void
+  + setL_Name(l_Name: String): void
+  + setStudent_ID(student_ID: int): void
+}
+
+@enduml

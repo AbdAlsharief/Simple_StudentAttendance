@@ -1,0 +1,341 @@
+@startuml
+class AccountsController {
+  - accountPane: AnchorPane
+  - tableView: TableView<Account>
+  - codeColumn: TableColumn<Account, Integer>
+  - usernameColumn: TableColumn<Account, String>
+  - passwordColumn: TableColumn<Account, String>
+  - navigation: Navigation
+  - model: DataModel.AccountDataModel
+
+  + AccountsController()
+  + initialize(): void
+  + add(): void
+  + back(): void
+  + edit(): void
+  + delete(): void
+}
+class AddAccountController {
+  - addPane: VBox
+  - model: DataModel.AccountDataModel
+  - navigation: Navigation
+  - username: TextField
+  - password: TextField
+  - check: CheckBox
+
+  + AddAccountController()
+  + onAdd(): void
+  + onBack(): void
+  + initialize(url: URL, resourceBundle: ResourceBundle): void
+  - isCheckboxSelected(): boolean
+  - clearFields(): void
+  - generateUniqueNumber(min: int, max: int): int
+}
+class AddLectureController {
+  - addGrid: GridPane
+  - showTeacher: ChoiceBox<String>
+  - lecture: TextField
+  - classroom: TextField
+  - saveButton: Button
+  - backButton: Button
+  - lectureDataModel: DataModel.LectureDataModel
+  - accountDataModel: DataModel.AccountDataModel
+  - navigation: Navigation
+
+  + initialize(): void
+  + save(): void
+  + back(): void
+  - getTeacherUsernames(): ArrayList<String>
+  - generateUniqueNumber(min: int, max: int): int
+}
+class AddStudentController {
+  - addStudent: AnchorPane
+  - nameTextField: TextField
+  - phoneNumberTextField: TextField
+  - residenceAreaTextField: TextField
+  - maleRadioButton: RadioButton
+  - femaleRadioButton: RadioButton
+  - saveButton: Button
+  - backButton: Button
+  - navigation: Navigation
+  - studentDataModel: DataModel.StudentDataModel
+  - genderToggleGroup: ToggleGroup
+
+  + initialize(): void
+  - clearInputFields(): void
+  - generateUniqueID(gender: String): int
+  - getSelectedGender(): String
+}
+class AdminController {
+  - adminPane: AnchorPane
+  - student: Button
+  - account: Button
+  - course: Button
+  - user: Label
+  - navigation: Navigation
+
+  + initialize(): void
+  + logout(event: ActionEvent): void
+  + handleAccountButton(): void
+  + handleCourseButton(): void
+  + handleStudentButton(): void
+}
+class AttendanceController {
+  - attendancePane: AnchorPane
+  - lectureChoiceBox: ChoiceBox<String>
+  - lectureDataModel: DataModel.LectureDataModel
+  - navigation: Navigation
+  + selectedLecture: String
+
+  + initialize(): void
+  + onAttendance(): void
+  + onBack(): void
+  + getFilteredLectureNames(teacherName: String): ArrayList<String>
+}
+class EditAccountController {
+  - editPane: VBox
+  - username: TextField
+  - password: TextField
+  - model: DataModel.AccountDataModel
+  - navigation: Navigation
+  - selectedAccount: Account
+
+  + initialize(): void
+  + onSave(): void
+  + onBack(): void
+  + setSelectedAccount(selectedAccount: Account): void
+}
+class EditLectureController {
+  - selectedLecture: Lecture
+  - editGrid: GridPane
+  - showTeacher: ChoiceBox<String>
+  - editButton: Button
+  - backButton: Button
+  - lectureDataModel: DataModel.LectureDataModel
+  - navigation: Navigation
+  - accountDataModel: DataModel.AccountDataModel
+
+  + initialize(): void
+  + onSave(): void
+  + onBack(): void
+  + setSelectedLecture(selectedLecture: Lecture): void
+}
+class EditTeacherStudentController {
+  - editPane: AnchorPane
+  - id: TextField
+  - lecture: TextField
+  - attendance: TextField
+  - saveButton: Button
+  - teacherStudentDataModel: DataModel.Teacher_StudentDataModel
+  - studentID: int
+  - navigation: Navigation
+  - lectureName: String
+
+  + check(): void
+  + addAttendanceChangeListener(): void
+  + save(): void
+  + back(): void
+}
+class LectureController {
+  - lecturePane: AnchorPane
+  - table: TableView<Lecture>
+  - codeColumn: TableColumn<Lecture, Integer>
+  - teacherCode: TableColumn<Lecture, Integer>
+  - TeacherName: TableColumn<Lecture, String>
+  - Lecture: TableColumn<Lecture, String>
+  - Classroom: TableColumn<Lecture, String>
+  - navigation: Navigation
+  - lectureDataModel: DataModel.LectureDataModel
+
+  + initialize(): void
+  + add(): void
+  + delete(): void
+  + back(): void
+  + edit(): void
+}
+class LoginController {
+  - root: AnchorPane
+  - usernameField: TextField
+  - passwordField: PasswordField
+  - submitButton: Button
+  - navigation: Navigation
+  - model: DataModel.AccountDataModel
+  + loggedInUsername: String
+
+  + initialize(): void
+  + handleSubmitButtonAction(): void
+  + showAlert(alertType: AlertType, title: String, content: String): void
+}
+class ReportController {
+  - reportPane: GridPane
+  - navigation: Navigation
+  - id: TextField
+  - teacher_studentDataModel: DataModel.Teacher_StudentDataModel
+  - lectureDataModel: DataModel.LectureDataModel
+
+  + initialize(): void
+  + onBack(): void
+  + searchStudent(): void
+  + generateStudentReport(student: Teacher_Student): void
+  + openGeneratedFile(): void
+  + showAlert(message: String): void
+  + isNumeric(str: String): boolean
+}
+class StudentController {
+  - studentPane: BorderPane
+  - filterCheckBox: CheckBox
+  - tableView: TableView<Student>
+  - idColumn: TableColumn<Student, String>
+  - studentNameColumn: TableColumn<Student, String>
+  - mobileNumberColumn: TableColumn<Student, String>
+  - residenceAreaColumn: TableColumn<Student, String>
+  - idTextField: TextField
+  - studentNameTextField: TextField
+  - mobileNumberTextField: TextField
+  - residenceAreaTextField: TextField
+  - delete: Button
+  - navigation: Navigation
+  - studentDataModel: DataModel.StudentDataModel
+  - originalStudents: ObservableList<Student>
+
+  + initialize(): void
+  + onFilter(): void
+  + add(): void
+  + delete(): void
+  + back(): void
+  - clearFields(): void
+}
+class TakeAttendanceController {
+  - takePane: AnchorPane
+  - tableView: TableView<Teacher_Student>
+  - studentId: TableColumn<Teacher_Student, Integer>
+  - studentName: TableColumn<Teacher_Student, String>
+  - select: TableColumn<Teacher_Student, Boolean>
+  - id: TextField
+  - filteredData: FilteredList<Teacher_Student>
+  - teacher_studentDataModel: DataModel.Teacher_StudentDataModel
+  - navigation: Navigation
+
+  + initialize(): void
+  + onBack(): void
+  + selectAll(): void
+  + excelPath(): void
+  - getStudentIDFromRow(row: Row): int
+}
+
+class Teacher_StudentController {
+    - teacherPane: AnchorPane
+    - lectureChoiceBox: ChoiceBox<String>
+    - studentComboBox: ComboBox<Student>
+    - saveTeacher_Student: Button
+    - tableView: TableView
+    - ID: TableColumn<Teacher_Student,Integer>
+    - student_Name: TableColumn<Teacher_Student,String>
+    - teacher_Name: TableColumn<Teacher_Student,String>
+    - lecture: TableColumn<Teacher_Student,String>
+    - attendance: TableColumn<Teacher_Student,Integer>
+    - lectureDataModel: DataModel.LectureDataModel
+    - navigation: Navigation
+    - teacher_studentDataModel: DataModel.Teacher_StudentDataModel
+    - studentDataModel: DataModel.StudentDataModel
+    - originalStudents: ObservableList<Student>
+    - Teacher_Student: ObservableList<Teacher_Student>
+    - accountDataModel: DataModel.AccountDataModel
+    - selectedStudentString: String
+    - selectedStudent: Student
+
+    + Teacher_StudentController()
+    + initialize()
+    + save()
+    + handleStudentComboBoxAction()
+    + deleteTeacher_Student()
+    + edit()
+    + back()
+    + getFilteredLectureNames(teacherName: String): ArrayList<String>
+}
+class Student {
+    + getID(): int
+    + getStudentName(): String
+}class DataModel.LectureDataModel {
+     + getLectures(): ArrayList<Lecture>
+     + getLCodeByLName(lName: String): int
+     + getLNameByLCode(lCode: int): String
+ }
+
+ class Navigation {
+     + navigateTo(pane: AnchorPane, fxmlPath: String)
+ }
+
+ class DataModel.Teacher_StudentDataModel {
+     + getTeacher_StudentsByTeacherName(username: String): ArrayList<Teacher_Student>
+     + addTeacher_Student(teacherStudent: Teacher_Student)
+     + removeTeacher_Student(teacherStudent: Teacher_Student)
+     + checkAndUpdateAttendance()
+ }
+
+ class DataModel.StudentDataModel {
+     + getStudents(): ArrayList<Student>
+ }
+
+ class DataModel.AccountDataModel {
+     + getCodeByUsername(username: String): int
+ }
+
+ class Teacher_Student {
+     +  - student_ID: int
+         - student_name: String
+         - l_Code: int
+         - selected: CheckBox
+         - accountDataModel: DataModel.AccountDataModel
+         - teacher_Code: int
+         - teacher_name: String
+         - l_Name: String
+         - attendance: int
+
+         + Teacher_Student(student_ID: int, student_name: String)
+         + getSelected(): CheckBox
+         + setSelected(selected: CheckBox): void
+         + getStudent_name(): String
+         + getL_Code(): int
+         + getAccountDataModel(): DataModel.AccountDataModel
+         + getL_Name(): String
+         + getStudent_ID(): int
+         + getTeacher_Code(): int
+         + getTeacher_name(): String
+         + setTeacher_name(teacher_name: String): void
+         + setTeacher_Code(teacher_Code: int): void
+         + setStudent_name(student_name: String): void
+         + setL_Code(l_Code: int): void
+         + getAttendance(): int
+         + setAttendance(attendance: int): void
+         + setL_Name(l_Name: String): void
+         + setStudent_ID(student_ID: int): void
+ }
+ Teacher_StudentController --> Student
+ Teacher_StudentController --> DataModel.LectureDataModel
+Teacher_StudentController --> Navigation
+Teacher_StudentController --> DataModel.Teacher_StudentDataModel
+Teacher_StudentController --> DataModel.StudentDataModel
+Teacher_StudentController --> DataModel.AccountDataModel
+Teacher_StudentController --> Teacher_Student
+Teacher_StudentController --> TableView
+
+
+
+
+class TeacherMainController {
+    + teacherMain: AnchorPane
+    - username: Label
+    - navigation: Navigation
+    - teacherStudentDataModel: DataModel.Teacher_StudentDataModel
+
+    + initialize()
+    + onLogOut()
+    + onStudent()
+    + onAttendance()
+    + report()
+}
+
+TeacherMainController --> Navigation
+TeacherMainController --> DataModel.Teacher_StudentDataModel
+@enduml

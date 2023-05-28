@@ -1,0 +1,11 @@
+student_ID,student_name,teacher_Code,teacher_name,l_Code,l_Name,attendance
+10000,abd,123,teacher,1200,qwe,11
+20000,adwsa,123,teacher,1200,qwe,12
+10001,abde,123,teacher,1200,qwe,3
+10000,abd,147,asd,1795,dad,0
+10000,abd,147,asd,1149,adswad,0
+10001,abde,147,asd,1795,dad,0
+10000,abd,144,test,1123,tfkvj,0
+20000,adwsa,144,test,1717,kbjb,0
+20001,asda,144,test,1717,kbjb,0
+10001,abde,144,test,1123,tfkvj,0

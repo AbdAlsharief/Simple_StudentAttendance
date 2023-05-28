@@ -1,0 +1,104 @@
+@startuml
+
+class Navigation {
+  - selectedAccount: Account
+  - LOGIN_FXML: String
+  - ADMIN_FXML: String
+  - LECTURE_FXML: String
+  - ADD_LECTURE_FXML: String
+  - EDIT_LECTURE_FXML: String
+  - TEACHER_FXML: String
+  - ACCOUNTS_FXML: String
+  - ADD_ACCOUNTS_FXML: String
+  - EDIT_ACCOUNTS_FXML: String
+  - TEACHER_MAIN_FXML: String
+  - Student_FXML: String
+  - TEACHER__STUDENT_FXML: String
+  - ADD_STUDENT_FXML: String
+  - EDIT_TEACHER_STUDENT_FXML: String
+  - ATTENDANCE_FXML: String
+  - TAKE_ATTENDANCE_FXML: String
+  - REPORT_FXML: String
+
+  + navigateTo(rootPane: Parent, path: String): void
+  + selectAccountNavigateTo(pane: AnchorPane, fxmlFile: String, selectedAccount: Account): void
+  + selectLectureNavigateTo(pane: AnchorPane, fxmlFile: String, selectedLecture: Lecture): void
+}
+
+class Account {
+    - code: int
+    - username: String
+    - password: String
+
+    + Account()
+    + Account(code: int, username: String, password: String)
+    + getCode(): int
+    + setCode(code: int): void
+    + getUsername(): String
+    + setUsername(username: String): void
+    + getPassword(): String
+    + setPassword(password: String): void
+    + equals(o: Object): boolean
+    + hashCode(): int
+    + toString(): String
+}
+
+class Lecture {
+   - accountDataModel: AccountDataModel
+    - lCode: int
+    - teacher_Code: int
+    - teacher_name: String
+    - lName: String
+    - classroom: String
+    - account: Account
+
+    + Lecture()
+    + Lecture(lCode: int, teacher_Code: int, teacher_name: String, lName: String, classroom: String)
+    + getTeacher_Code(): int
+    + setTeacher_Code(teacher_Code: int): void
+    + getTeacher_name(): String
+    + setTeacher_name(teacher_name: String): void
+    + getLCode(): int
+    + setLCode(lCode: int): void
+    + getLName(): String
+    + setLName(lName: String): void
+    + getClassroom(): String
+    + setClassroom(classroom: String): void
+    + toString(): String
+}
+
+class EditAccountController {
+ - editPane: VBox
+   - username: TextField
+   - password: TextField
+   - model: DataModel.AccountDataModel
+   - navigation: Navigation
+   - selectedAccount: Account
+
+   + initialize(): void
+   + onSave(): void
+   + onBack(): void
+   + setSelectedAccount(selectedAccount: Account): void
+}
+
+class EditLectureController {
+ - selectedLecture: Lecture
+   - editGrid: GridPane
+   - showTeacher: ChoiceBox<String>
+   - editButton: Button
+   - backButton: Button
+   - lectureDataModel: DataModel.LectureDataModel
+   - navigation: Navigation
+   - accountDataModel: DataModel.AccountDataModel
+
+   + initialize(): void
+   + onSave(): void
+   + onBack(): void
+   + setSelectedLecture(selectedLecture: Lecture): void
+}
+
+Navigation "1" --> "*" Account
+Navigation "1" --> "*" Lecture
+Navigation "1" --> "1" EditAccountController
+Navigation "1" --> "1" EditLectureController
+@enduml
